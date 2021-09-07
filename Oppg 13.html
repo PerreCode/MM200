@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+
+<style>
+    #container>div {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        margin: 2px;
+    }
+</style>
+
+<body>
+    <text>Type in your name:</text>
+    <input id="input">
+    <button id="btn">Convert first letter into a color hue</button>
+
+    <div id="container"></div>
+
+
+<script>
+
+let insert = document.getElementById("input");
+let btn = document.getElementById("btn");
+
+let cont = document.getElementById("container");
+
+
+function btnClick(){
+    
+    let letterInAlphabet = insert.value.charAt(0);
+    let elm = document.createElement("div");
+    let convert = letterInAlphabet.charCodeAt(0)-64;
+    let hue = convert/29*360;        
+    elm.style.backgroundColor = "hsl(" + hue + ", 100%, 50%)";
+    cont.appendChild(elm);
+}
+
+
+btn.addEventListener("click", btnClick)
+
+
+
+</script>
+
+</body>
+
+</html>

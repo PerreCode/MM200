@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+<body>
+    <h2>Klokke</h2>
+    <h1 id="clock"></h1>
+    <br>
+    <h2>Stoppeklokke</h2>
+    <h1 id="stopWatch"></h1>
+    <h1 id="lap"></h1>
+    <button id="btnA">Start</button>
+    <button id="btnB">Lap</button>
+
+<script>
+
+
+// A)
+setInterval(myTimer,1000);
+
+function myTimer() {
+  const time = new Date();
+  document.getElementById("clock").innerHTML = time.toLocaleTimeString();
+}
+
+// B)
+
+let startTime = 0;
+setInterval(stopWatchStart,50);
+
+function stopWatchStart(){
+    startTime = Date.now();
+    document.getElementById("stopWatch").innerHTML = Date.now();
+}
+
+function stopWatchLap(){
+    let lapTime = Date.now()-startTime;
+    document.getElementById("lap").innerHTML = lapTime;
+    console.log(lapTime);
+
+}
+
+let btnA = document.getElementById("btnA");
+let btnB = document.getElementById("btnB");
+
+btnA.addEventListener("click", stopWatchStart);
+btnB.addEventListener("click", stopWatchLap);
+
+
+
+</script>
+
+</body>
+
+</html>
