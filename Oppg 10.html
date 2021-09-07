@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+<body>
+    
+    <button id="btnA">A</button>
+    <button id="btnB">B</button>
+    <h3 id="txtOut"></h3>
+
+<script>
+
+let btnA = document.getElementById("btnA");
+let btnB = document.getElementById("btnB");
+let txtOut = document.getElementById("txtOut");
+let outPut = 0;
+
+let code = [];
+let combination = ["A","A","B","A","B"];
+
+function btnAClick(){    
+    code.push("A");
+    unlockCode();
+}
+
+function btnBClick(){    
+    code.push("B");
+    unlockCode();
+ }
+
+ function unlockCode(){
+    for(let i=0; i<code.length; i++){
+        if (code[i]===combination[i]){
+            txtOut.innerHTML = "";
+        }else{
+            code=[];
+            txtOut.innerHTML = "Error";
+        }
+    }
+    if(code.length === combination.length){
+                txtOut.innerHTML = "You unlocked the door";
+            }
+ }
+
+btnA.addEventListener("click", btnAClick);
+btnB.addEventListener("click", btnBClick);
+</script>
+
+</body>
+
+</html>

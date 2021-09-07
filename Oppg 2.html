@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+<body>
+    <h2>Insert inches</h2>
+    <input id="number">
+    <button id="btn">Convert to centimeters!</button>
+    <h1 id="txtOut">0</h1>
+
+
+<script>
+
+let myNumber = document.getElementById("number");
+let btnA = document.getElementById("btn");
+let txtOut = document.getElementById("txtOut");
+let outPut;
+
+
+function btnClick(){
+    outPut = myNumber.value * 2.54;
+    txtOut.innerHTML = outPut.toFixed(2) + " cm";    
+}
+
+
+btnA.addEventListener("click", btnClick);
+</script>
+
+</body>
+
+</html>
