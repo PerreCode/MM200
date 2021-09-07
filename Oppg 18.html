@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My document</title>
+  </head>
+  <body>
+    <label for="inpRad">Radius: </label>
+    <input id="inpRad" type="range" min="10" max="50" value="50" />
+    <br /><br />
+    <label for="inpDist">Distance: </label>
+    <input id="inpDist" type="range" min="150" max="300" value="150" />
+    <br /><br />
+    <canvas id="cnv" width="600" height="500"></canvas>
+
+    <script>
+      let inpRad = document.getElementById("inpRad");
+      let inpDist = document.getElementById("inpDist");
+      let canvas = document.getElementById("cnv");
+      let ctx = canvas.getContext("2d");
+      ctx.lineWidth = 2;
+      h = canvas.height;
+      w = canvas.width;
+
+      newCircle();
+
+      // ----------------------------------------------
+       inpRad.addEventListener('input', function(evt) {        
+        newCircle();        
+        });
+        
+      inpDist.addEventListener("input", function (evt) {
+        newCircle();
+      });
+
+      // ----------------------------------------------
+      function newCircle() {
+        let dist = parseInt(inpDist.value);
+        let rad = parseInt(inpRad.value);
+        ctx.clearRect(0, 0, 600, 600);
+
+        //sirkel venstre
+        ctx.beginPath();
+        ctx.arc(w / 2 - dist + 100, h / 2 - 50, rad, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+        //sirkel høyre
+        ctx.beginPath();
+        ctx.arc(w / 2 + dist - 100, h / 2 - 50, rad, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+        ctx.beginPath();
+
+        //linje oppe venstre
+        ctx.moveTo(w / 2, h / 2 - rad- 50);
+        ctx.lineTo(w / 2 - dist + 100, h / 2 - rad-50);
+
+        //linje oppe høyre
+        ctx.moveTo(w / 2, h / 2 - rad-50);
+        ctx.lineTo(w / 2 + dist - 100, h / 2 - rad-50);
+
+        //linje nede venstre
+        ctx.moveTo(w / 2, h / 2 + rad - 50);
+        ctx.lineTo(w / 2 - dist + 100, h / 2 + rad -50);
+
+        //linje nede høyre
+        ctx.moveTo(w / 2, h / 2 + rad - 50);
+        ctx.lineTo(w / 2 + dist - 100, h / 2 + rad - 50);
+
+        ctx.closePath();
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>
