@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css" />
+  </head>
+  <body>
+    <text>Year:</text>
+    <input id="input" />
+    <button id="btn">Check if the year is a leap year</button>
+    <h1 id="txtOut"></h1>
+
+    <script>
+      let input = document.getElementById("input");
+      let btn = document.getElementById("btn");
+      let txtOut = document.getElementById("txtOut");
+
+      let year = 0;
+
+      function btnClick() {
+        if (input.value % 4 === 0) {
+          if (
+            Number.isInteger(input.value / 100) &&
+            Number.isInteger(input.value / 400) === false
+          ) {
+            txtOut.innerHTML = "Det er ikke et skuddår";
+          } else {
+            txtOut.innerHTML = "Det er et skuddår";
+          }
+        } else {
+          txtOut.innerHTML = "Det er ikke et skuddår";
+        }
+      }
+
+      //Mangler B)
+
+      btn.addEventListener("click", btnClick);
+    </script>
+  </body>
+</html>
