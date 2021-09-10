@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+
+<style>
+    #container>div {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        margin: 2px;
+    }
+</style>
+
+<body>
+    <text id="colorCode"></text>
+    <br>
+    <text>Number of elements:</text>
+    <input id="num1">
+    <button id="btn">Create elements</button>
+    <h1 id="txtOut"></h1>
+
+    <div id="container"></div>
+
+
+<script>
+
+let num1 = document.getElementById("num1");
+let btn = document.getElementById("btn");
+let txtOut = document.getElementById("colorCode");
+
+let cont = document.getElementById("container");
+
+let elements = 1;
+let changeOfColor = 0;
+
+function btnClick(){
+    
+    changeOfColor = 360/num1.value;
+    for(let i=0; i<num1.value; i++){
+    let hue = elements;
+    let elm = document.createElement("div");        
+    elm.style.backgroundColor = "hsl(" + hue + ", 100%, 50%)";
+    cont.appendChild(elm);
+    elements += changeOfColor;
+    elm.addEventListener("click", function(evt){
+        txtOut.innerHTML = "Color Code: " + evt.currentTarget.style.backgroundColor;
+      });
+    }
+}
+
+btn.addEventListener("click", btnClick)
+
+
+</script>
+
+</body>
+
+</html>

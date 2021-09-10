@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>My document</title>
+    <link rel="stylesheet" href="CSS_template.css">
+</head>
+<body>
+    <text id="txtOut"></text>
+    <br>
+    <input id="num1">
+    <button id="btn">Create elements</button>
+    <div id ="container" onclick="h3Click()"></div>
+
+
+<script>
+
+let num1 = document.getElementById("num1");
+let btn = document.getElementById("btn");
+let cont = document.getElementById("container");
+let txtOut = document.getElementById("txtOut");
+
+let elements = 0;
+
+btn.addEventListener("click", function(evt){
+    for(let i=0; i<num1.value; i++){
+        elements += 1
+        let elm = document.createElement("h3");
+        elm.innerHTML = "Humpty Dumpty " + elements;
+        cont.appendChild(elm);
+        elm.addEventListener("click", function(evt){
+        let h3 = evt.currentTarget;
+        txtOut.innerHTML = "You clicked " + h3.innerHTML
+      });
+    }  
+
+});
+
+
+//Trenger hjelp på c)
+
+
+</script>
+
+</body>
+
+</html>

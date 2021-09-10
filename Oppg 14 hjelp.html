@@ -20,12 +20,14 @@
 
 
 // A)
+/*
 setInterval(myTimer,1000);
 
 function myTimer() {
   const time = new Date();
   document.getElementById("clock").innerHTML = time.toLocaleTimeString();
 }
+*/
 
 // B)
 
@@ -37,12 +39,13 @@ function stopWatchStart(){
     document.getElementById("stopWatch").innerHTML = Date.now();
 }
 
-function stopWatchLap(){
+/* function stopWatchLap(){
     let lapTime = Date.now()-startTime;
     document.getElementById("lap").innerHTML = lapTime;
     console.log(lapTime);
 
 }
+*/
 
 let btnA = document.getElementById("btnA");
 let btnB = document.getElementById("btnB");
